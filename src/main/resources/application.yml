@@ -1,0 +1,14 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          allegro-client:
+            client-id: <client-id here>
+            client-secret: <client-secret here>
+            provider: allegro
+            authorization-grant-type: client_credentials
+        provider:
+          allegro:
+             authorization-uri: https://allegro.pl/auth/oauth/authorize
+             token-uri: https://allegro.pl/auth/oauth/token
