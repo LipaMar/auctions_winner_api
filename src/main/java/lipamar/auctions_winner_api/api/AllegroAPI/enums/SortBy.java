@@ -16,12 +16,11 @@ public enum SortBy {
     SortBy(String value) {
         this.value = value;
     }
-    public static SortBy getEnum(String value){
-        return Arrays.stream(SortBy.values()).filter(sortBy -> sortBy.value.equals(value)).findFirst().orElse(RELEVANCE);
+    public static SortBy getEnum(String enumAsString){
+        return Arrays.stream(SortBy.values()).filter(sortBy -> sortBy.name().equals(enumAsString)).findFirst().orElse(RELEVANCE);
     }
 
-    @Override
-    public String toString() {
+    public String getValue() {
         return value;
     }
 }
