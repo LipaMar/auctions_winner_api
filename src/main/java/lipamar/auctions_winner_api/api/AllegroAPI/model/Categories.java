@@ -1,20 +1,20 @@
 package lipamar.auctions_winner_api.api.AllegroAPI.model;
 
-import java.util.List;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import lipamar.auctions_winner_api.api.AllegroAPI.converter.CategoriesDeserializer;
+
+import java.util.List;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({
-        "categories"
-})
+@JsonDeserialize(using = CategoriesDeserializer.class)
 public class Categories {
-
-    @JsonProperty("categories")
     private List<Category> categories = null;
 
-    @JsonProperty("categories")
+    public void setCategories(List<Category> categories) {
+        this.categories = categories;
+    }
+
     public List<Category> getCategories() {
         return categories;
     }

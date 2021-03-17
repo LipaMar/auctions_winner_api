@@ -1,6 +1,9 @@
 package lipamar.auctions_winner_api.api.AllegroAPI.model;
 
-import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
@@ -17,48 +20,23 @@ public class Category {
     @JsonProperty("name")
     private String name;
     @JsonProperty("parent")
-    private Object parent;
+    private Category parent;
     @JsonProperty("leaf")
     private Boolean leaf;
 
-
-    @JsonProperty("id")
     public String getId() {
         return id;
     }
 
-    @JsonProperty("id")
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    @JsonProperty("name")
     public String getName() {
         return name;
     }
 
-    @JsonProperty("name")
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    @JsonProperty("parent")
-    public Object getParent() {
+    public Category getParent() {
         return parent;
     }
 
-    @JsonProperty("parent")
-    public void setParent(Object parent) {
-        this.parent = parent;
-    }
-
-    @JsonProperty("leaf")
-    public Boolean getLeaf() {
+    public Boolean isLeaf() {
         return leaf;
-    }
-
-    @JsonProperty("leaf")
-    public void setLeaf(Boolean leaf) {
-        this.leaf = leaf;
     }
 }
